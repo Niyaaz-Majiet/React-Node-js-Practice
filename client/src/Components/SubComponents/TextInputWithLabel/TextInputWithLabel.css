@@ -1,0 +1,12 @@
+.input-wrapper {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 8px;
+}
+
+.input-label {
+  margin-right: 8px;
+  width: 45%;
+}

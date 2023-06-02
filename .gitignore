@@ -1,0 +1,13 @@
+/.idea
+server/.idea
+server/package-lock.json
+server/node_modules
+server/.gitignore
+
+
+client/.idea
+client/package-lock.json
+client/node_modules
+client/build
+client/.gitignore
+
