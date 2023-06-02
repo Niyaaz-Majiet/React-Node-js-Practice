@@ -1,10 +1,14 @@
 import React, {useEffect, useState} from "react";
 import CardImage from "../CardImage/CardImage";
 import {getLocalStorageObject, ImagePaths, setLocalStorageObject} from "../../Util";
-import "./CardGrid.css";
+import styles from "./CardGrid.module.css";
 
 const CardGrid = ({isMobile, reset}) => {
-    const dataInStorage = getLocalStorageObject("card-data");
+    let dataInStorage;
+    if (typeof window !== 'undefined') {
+        dataInStorage = getLocalStorageObject("card-data")
+    }
+
     const [cardData, updateCardData] = useState(dataInStorage ? dataInStorage : ImagePaths);
 
     const resetCardList = () => {
@@ -100,7 +104,7 @@ const CardGrid = ({isMobile, reset}) => {
     }
 
     return (
-        <div className="card-grid-group">
+        <div className={styles["card-grid-group"]}>
             {
                 cardData.map((value) => {
                     return (<CardImage key={value.imageName} data={value} isMobile={isMobile}

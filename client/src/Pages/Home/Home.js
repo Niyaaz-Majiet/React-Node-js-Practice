@@ -8,11 +8,11 @@ import LegendBlock from "../../Components/LedgendBlock/LegendBlock";
 import useModal from "../../Hooks/useModal";
 import {getAllDocumentsInCollection} from "../../Services/firebaseServices";
 import {getLocalStorageObject, setLocalStorageObject} from "../../Util";
-import './Home.css';
+import styles from './Home.module.css';
 
 const Home = () => {
     const { open, openModal, closeModal } = useModal();
-    const [isMobile, setIsMobile] = useState(window.innerWidth <= 600);
+    const [isMobile, setIsMobile] = useState(false);
     const [siteData, setSiteData] = useState({});
     const [shouldReset,setReset] = useState(false);
 
@@ -35,6 +35,7 @@ const Home = () => {
 
     useEffect(() => {
         fetchLatestSiteData();
+        setIsMobile(window.innerWidth <= 600);
         window.addEventListener('resize', handleWindowSizeChange);
         return () => {
             window.removeEventListener('resize', handleWindowSizeChange);
@@ -58,11 +59,11 @@ const Home = () => {
     }
 
     return (
-        <div className="home-page-container">
+        <div className={styles['ome-page-container']}>
             <div>
                 <SubmitButton
                     text={"Game Details"}
-                    btnClass={"modal-btn margin-all"}
+                    btnClass={`${styles['modal-btn']} ${styles['margin-all']}`}
                     handleSubmit={()=>openModal()}
                 />
                 {open ? (
@@ -75,13 +76,13 @@ const Home = () => {
             </div>
 
 
-            <div className={isMobile ? "content-container-mobile" : "content-container"}>
+            <div className={isMobile ? styles['content-container-mobile'] : styles['content-container']}>
                 {isMobile && <Paragraph text={siteData['text']}/>}
 
                 <CardGrid isMobile={isMobile} reset={shouldReset}/>
 
                 {!isMobile &&
-                <div className="side-container">
+                <div className={styles['side-container']}>
                     <InfoSection
                     textOne={siteData['text']}
                     textTwo={siteData['description']}

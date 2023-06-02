@@ -1,11 +1,11 @@
 import React from "react";
-import "./TextInputWithLabel.css"
+import styles from "./TextInputWithLabel.module.css"
 import TextInput from "../TextInput/TextInput";
 
 const TextInputWithLabel = ({inputClass = "",name,title,placeHolder,value,handleChange,readOnly=false}) => {
     return (
-        <div className="input-wrapper">
-            <label htmlFor={name} className="input-label" title={title}>{title}</label>
+        <div className={styles['input-wrapper']}>
+            <label htmlFor={name} className={styles['input-label']} title={title}>{title}</label>
             <TextInput
             name={name}
             handleChange={(e)=>handleChange(e)}

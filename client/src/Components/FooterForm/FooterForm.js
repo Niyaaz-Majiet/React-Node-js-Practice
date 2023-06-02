@@ -3,7 +3,7 @@ import TextInput from "../SubComponents/TextInput/TextInput";
 import CheckBox from "../SubComponents/CheckBox/CheckBox";
 import SubmitButton from "../SubComponents/SubmitButton/SubmitButton";
 import {upsertDocument} from "../../Services/firebaseServices";
-import "./FooterForm.css"
+import styles from "./FooterForm.module.css"
 
 const FooterForm = ({
                         submitButtonText,
@@ -57,26 +57,26 @@ const FooterForm = ({
     }
 
     return (
-        <div className={"footer-group"}>
-            <div className="col-div section">
-                <p className="text-content bold">{paragraphOneText}</p>
-                <p className="text-content small">{paragraphTwoText}</p>
+        <div className={styles["footer-group"]}>
+            <div className={`${styles['col-div']} ${styles.section}`}>
+                <p className={`${styles['text-content']} ${styles.bold}`}>{paragraphOneText}</p>
+                <p className={`${styles['text-content']} ${styles.small}`}>{paragraphTwoText}</p>
             </div>
-            <div className="col-div section">
+            <div className={`${styles['col-div']} ${styles.section}`}>
                 <TextInput name={"name"} value={formData.name} placeHolder={inputPlaceholderOne}
-                           handleChange={(e) => handleFormDataChange(e)} inputClass={"input-margin-bottom"}/>
+                           handleChange={(e) => handleFormDataChange(e)} inputClass={styles['input-margin-bottom']}/>
                 <TextInput name={"email"} value={formData.email} placeHolder={inputPlaceholderTwo}
                            handleChange={(e) => handleFormDataChange(e)}/>
             </div>
-            <div className="col-div">
+            <div className={styles['col-div']}>
                 <CheckBox checked={formData.isSeller} name={"isSeller"} text={checkBoxOneText}
                           handleChange={(e) => handleFormDataChange(e, true)}/>
                 <CheckBox checked={formData.signedUpForNewsFeed} name={"signedUpForNewsFeed"}
                           text={checkBoxTwoText} handleChange={(e) => handleFormDataChange(e, true)}/>
             </div>
-            <div className="col-div">
+            <div className={styles['col-div']}>
                 <SubmitButton text={submitButtonText} handleSubmit={() => handleSubmit()}
-                              btnClass={"submit-btn-class"}/>
+                              btnClass={styles['submit-btn-class']}/>
             </div>
         </div>
     );

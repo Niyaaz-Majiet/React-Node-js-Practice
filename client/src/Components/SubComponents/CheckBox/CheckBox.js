@@ -1,15 +1,15 @@
 import React from "react";
-import "./CheckBox.css"
+import styles from "./CheckBox.module.css"
 
 const CheckBox = ({checkBoxClass = "",name,text,checked,handleChange}) => {
     return (
-        <div className="checkbox-wrapper">
-            <label htmlFor={name} className="check-label">
+        <div className={styles['checkbox-wrapper']}>
+            <label htmlFor={name} className={styles['check-label']}>
                 <input
                     id={name}
                     name={name}
                     type="checkbox"
-                    className={`check-box ${checkBoxClass}`}
+                    className={`${styles['check-box']} ${checkBoxClass}`}
                     checked={checked}
                     onChange={(e)=>handleChange(e)}
                 /> {text}

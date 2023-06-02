@@ -1,0 +1,34 @@
+html, body, .home-page-container, #root {
+    height: 100%;
+}
+
+body {
+    min-width: 250px;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    background-image: url("../public/svg/desktop_background.svg");
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+code {
+    font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+@media (max-width: 600px) {
+    body {
+        background-image: url("../public/svg/mobile-background.svg");
+        background-size: cover;
+        background-repeat: no-repeat;
+    }
+}
+
+

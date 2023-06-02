@@ -1,5 +1,5 @@
 import React from "react";
-import './LegendBlock.css';
+import './LegendBlock.module.css';
 import TextInputWithLabel from "../SubComponents/TextInputWithLabel/TextInputWithLabel";
 import {getLocalStorageObject, setLocalStorageObject} from "../../Util";
 

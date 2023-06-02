@@ -1,4 +1,5 @@
 import React from "react";
+import Image from "next/image";
 
 const CardImage = ({data, isMobile, handleFlip}) => {
     let shouldFlip = data.set;
@@ -19,7 +20,7 @@ const CardImage = ({data, isMobile, handleFlip}) => {
         return imageSrc;
     }
 
-    return <img alt={data.imageName} onClick={() => handleFlip()}
+    return <Image alt={data.imageName} onClick={() => handleFlip()} height={200} width={200}
                 src={getImageSrc()}/>
 }
 

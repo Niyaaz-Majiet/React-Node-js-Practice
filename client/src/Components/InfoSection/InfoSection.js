@@ -1,9 +1,9 @@
 import React from "react";
-import "./InfoSection.css"
+import styles from "./InfoSection.module.css"
 
 const InfoSection = ({textOne,textTwo}) => {
     return (
-        <div className="info-content">
+        <div className={styles['info-content']}>
             <Paragraph text={textOne}/>
             <Paragraph text={textTwo}/>
         </div>
@@ -12,7 +12,7 @@ const InfoSection = ({textOne,textTwo}) => {
 
 const Paragraph = ({text = `The perfect place to <b>buy & sell</b> premium, pre-loved fashion  for little ones!`}) => {
     return (
-            <p className="paragraph-top" dangerouslySetInnerHTML={{__html: text}}/>
+            <p className={styles['paragraph-top']} dangerouslySetInnerHTML={{__html: text}}/>
     );
 }
 
